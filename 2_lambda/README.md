@@ -15,6 +15,7 @@ Create a new Python Lambda by providing a name, latest Python runtime, choose cr
 ![Lambda creation screen](/2_lambda/img/Lambda_create.png)
 
 After the Lambda has been created, copy source code in the editor window and click Deploy
+
 ![Lambda adding code](/2_lambda/img/Add_code.png)
 
 ### Configure additional settings
