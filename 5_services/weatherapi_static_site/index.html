@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.2.1/plotly.min.js"></script>
+</head>
+<body>
+  <h1>API Data Plot</h1>
+  <div id="chart"></div>
+
+  <script>
+    // Make API request
+    axios.get('/data')
+      .then(response => {
+        const data = response.data;
+        const x = data.map(point => point.x);
+        const y = data.map(point => point.y);
+
+        // Plot graph using Plotly.js
+        const chartDiv = document.getElementById('chart');
+        Plotly.newPlot(chartDiv, [{ x, y, type: 'scatter' }], { margin: { t: 0 } });
+      })
+      .catch(error => {
+        console.error('Error retrieving data:', error);
+      });
+  </script>
+</body>
+</html>
