@@ -37,6 +37,8 @@ resource "aws_s3_object" "object" {
     key          = "index.html"
     source       = "weatherapi_static_site/index.html"
     content_type = "text/html"
+
+    etag   = "${filemd5("weatherapi_static_site/index.html")}"
 }
 
 output "website_url" {

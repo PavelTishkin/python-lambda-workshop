@@ -5,16 +5,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.2.1/plotly.min.js"></script>
 </head>
 <body>
-  <h1>API Data Plot</h1>
+  <h1>Today's temp chart</h1>
   <div id="chart"></div>
 
   <script>
     // Make API request
-    axios.get('/data')
+    axios.get('https://2iagf63e5l.execute-api.eu-west-1.amazonaws.com/weatherapi5_gw/weather')
       .then(response => {
         const data = response.data;
-        const x = data.map(point => point.x);
-        const y = data.map(point => point.y);
+
+        const x = data.x;
+        const y = data.y;
 
         // Plot graph using Plotly.js
         const chartDiv = document.getElementById('chart');
