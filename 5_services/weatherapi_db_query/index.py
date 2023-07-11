@@ -26,6 +26,8 @@ def lambda_handler(event, context):
 
         items = sorted(response['Items'], key=lambda item: int(item['dt']))
 
+        print("Retrieved {} items from DB dated {}".format(len(items), read_date))
+
         x_data = []
         y_data = []
 

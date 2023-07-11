@@ -57,3 +57,7 @@ resource "aws_lambda_permission" "WeatherAPI4_Lambda_Permission" {
 
   source_arn = "${aws_apigatewayv2_api.WeatherAPI4_API_GW.execution_arn}/*/*"
 }
+
+output "api_gw_url" {
+  value = aws_apigatewayv2_api.WeatherAPI4_API_GW.api_endpoint
+}

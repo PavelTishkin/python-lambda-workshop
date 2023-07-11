@@ -1,2 +1,2 @@
 maintainer = "pavlo"
-weather_api_key = "*************************"
+weather_api_key = "*****************************"

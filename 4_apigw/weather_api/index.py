@@ -9,8 +9,10 @@ def lambda_handler(event, context):
 
     print()
     parameters = event['queryStringParameters']
-    if 'city_name' not in parameters.keys():
+    if not parameters or 'city_name' not in parameters.keys():
         exit("Please specify city name")
+
+    print("Retrieving weather for {}".format(parameters['city_name']))
 
     url = base_url + "appid=" + api_key + "&q=" + parameters['city_name'] + "&units=metric"
      
