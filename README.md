@@ -64,3 +64,5 @@ After installing, clone this repo for further references and being able to run t
 ### OpenWeather
 
 We will be using API calls to retrieve current weather conditions, so it would help to subscribe to https://openweathermap.org/ account and generate an API key
+
+Please note that it could take a bit of time to activate your API key, so it would be good to complete this step before the lab
