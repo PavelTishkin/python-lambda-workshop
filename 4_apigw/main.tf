@@ -6,14 +6,14 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket         = "system9020-tf-backend"
-    key            = "state/python-demo-4/terraform.tfstate"
-    region         = "eu-west-1"
+  # backend "s3" {
+  #   bucket         = "system9020-tf-backend"
+  #   key            = "state/python-demo-4/terraform.tfstate"
+  #   region         = "eu-west-1"
 
-    dynamodb_table = "tf-state-lock"
-    encrypt        = true
-  }
+  #   dynamodb_table = "tf-state-lock"
+  #   encrypt        = true
+  # }
 }
 
 provider "aws" {

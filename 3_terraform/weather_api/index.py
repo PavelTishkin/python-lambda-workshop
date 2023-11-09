@@ -7,7 +7,7 @@ api_key = os.environ.get("API_KEY")
 
 def lambda_handler(event, context):
 
-    print()
+    print("Event: {}".format(event))
     if 'city_name' not in event.keys():
         exit("Please specify city name")
 

@@ -1,4 +1,4 @@
-# Weater API Lambda Terraform
+# Weather API Lambda Terraform
 
 ## Description
 
@@ -23,8 +23,6 @@ Contains source code for the libraries used by the Lambda. This code will be dep
 
 This is the main Terraform configuration file containing information for AWS accounts and backend to use during the deployment
 
-The backend is used to save the state that reflects the changes that Terraform applied to our environment. If this is not specified, Terraform will store state in a local file, which won't work if multiple people worked on the same Terraform project 
-
 ### [lambda.tf](lambda.tf)
 
 A file containing Terraform code for deploying Lambda and libraries layer. Technically we could put all the Terraform code in main.tf, but this makes it easier to work with
@@ -46,6 +44,8 @@ We are storing API key in the variable file for demonstration purposes but there
 ### [prod.tfvars](prod.tfvars)
 
 Contains actual variables data that will be used during the deployment by providing `-var-file` parameter
+
+You will need to update values specific to your application, including tags and the API key
 
 ## Deployment
 
@@ -70,7 +70,9 @@ The modules are downloaded and stored in .terraform directory locally
 
 Optionally, we can see what changes Terraform is going to make to the environment when resouces are deployed.
 
-This will make use of the state file we specified in the backend. If there is no statefile yet, the Terraform will assume the resources do not exist yet. Otherwise it will show what changes to resources will be made by our configuration
+This will make use of the state file we specified in the backend. For this lab we will be using a local backend to simplify the operation, but it's also possible to configure remote backend if multiple people work on the same project and want to sync the state up in a central location.
+
+If there is no statefile yet, the Terraform will assume the resources do not exist yet. Otherwise it will show what changes to resources will be made by our configuration
 
 We'll need to specify `-var-file` parameter, passing in variables that will be used during the deploy phase
 
@@ -89,6 +91,8 @@ terraform apply -ver-file prod.tfvars
 ```
 
 You can run the above command any time you make any changes to your code, it will pick it up and update just the resources that are changed
+
+As a result of command executing, you will find a new file terraform.tfstate added to your folder. This file is used to track all the changes that Terraform applies to the remote environment.
 
 ### Test changes
 
