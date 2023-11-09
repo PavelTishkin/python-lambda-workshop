@@ -7,7 +7,7 @@ api_key = os.environ.get("API_KEY")
 
 def lambda_handler(event, context):
 
-    print()
+    print("Event: {}".format(event))
     parameters = event['queryStringParameters']
     if not parameters or 'city_name' not in parameters.keys():
         exit("Please specify city name")

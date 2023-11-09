@@ -1,2 +1,3 @@
-maintainer = "pavlo"
-weather_api_key = "*****************************"
+maintainer = ""
+weather_api_key = ""
+profile = ""

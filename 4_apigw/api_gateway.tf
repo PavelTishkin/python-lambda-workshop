@@ -1,12 +1,12 @@
 resource "aws_apigatewayv2_api" "WeatherAPI4_API_GW" {
-  name          = "WeatherAPI4_HTTP_GW"
+  name          = "Lab4_WeatherAPI_HTTP_GW"
   protocol_type = "HTTP"
 }
 
 resource "aws_apigatewayv2_stage" "WeatherAPI4_GW_Stage" {
   api_id = aws_apigatewayv2_api.WeatherAPI4_API_GW.id
 
-  name        = "WeatherAPI4_GW"
+  name        = "Lab4_WeatherAPI_GW"
   auto_deploy = true
 
   access_log_settings {
@@ -59,5 +59,7 @@ resource "aws_lambda_permission" "WeatherAPI4_Lambda_Permission" {
 }
 
 output "api_gw_url" {
-  value = aws_apigatewayv2_api.WeatherAPI4_API_GW.api_endpoint
+  value = format("%s/%s/weather?city_name=",
+    aws_apigatewayv2_api.WeatherAPI4_API_GW.api_endpoint,
+    aws_apigatewayv2_stage.WeatherAPI4_GW_Stage.name)
 }

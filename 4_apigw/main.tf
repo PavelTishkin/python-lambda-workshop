@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.6"
+      version = "~> 5.24"
     }
   }
 
@@ -17,6 +17,6 @@ terraform {
 }
 
 provider "aws" {
-  profile = "system9020"
+  profile = var.profile
   region  = "eu-west-1"
 }

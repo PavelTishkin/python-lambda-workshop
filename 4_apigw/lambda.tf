@@ -1,10 +1,10 @@
 module "WeatherAPI4_Lambda" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name    = "WeatherAPI4"
+  function_name    = "Lab4_WeatherAPI"
   description      = "Retrieves current weather"
   handler          = "index.lambda_handler"
-  runtime          = "python3.10"
+  runtime          = "python3.11"
 
   source_path      = "weather_api"
 
@@ -16,7 +16,7 @@ module "WeatherAPI4_Lambda" {
     "API_KEY"      = var.weather_api_key
   }
 
-  role_name        = "WeatherAPI4_Role"
+  role_name        = "Lab4_WeatherAPI_Role"
   role_description = "Default Lambda permissions"
   role_tags        = {
     owner          = var.maintainer
@@ -32,10 +32,10 @@ module "WeatherAPI4_Layer" {
 
   create_layer        = true
 
-  layer_name          = "WeatherAPI4_Layer"
+  layer_name          = "Lab4_WeatherAPI_Layer"
   description         = "Layer containing libraries for WeatherAPI Lambda"
 
-  compatible_runtimes = ["python3.10"]
+  compatible_runtimes = ["python3.11"]
 
   source_path         = "requests_layer"
 }
