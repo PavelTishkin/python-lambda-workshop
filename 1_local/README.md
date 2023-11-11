@@ -6,13 +6,14 @@ A simple script to test our ability to communicate with OpenWeatherMap API
 
 ## Usage
 
-Requires to have python3 installed
+Requires to have python3 and requests module installed
 
 Before running the script, set OpenWeatherMap API key as an environment variable **API_KEY**
 
     export API_KEY=<MY_API_KEY>
+    pip3 install requests
 
-    python3 main.py "Dublin, IE"
+    python3 main.py Dublin,IE
 
 You should get output similar to this
 

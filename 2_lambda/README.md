@@ -64,3 +64,7 @@ Now we can run our function with the test event and get the results
 As an optional part of the lab, explore logs that Lambda creates in Cloudwatch. Those logs are created automatically by the Lambda based on the data being printed in the Lambda function.
 
 You can find the logs either by going to the Lambda Monitor tab and clicking on View CloudWatch logs or going to Cloudwatch service directly and look around to see if you can find the log group for your Lambda
+
+### Teardown
+
+After you have ensured that the deployment works, you can clean up the changes you deployed by navigating to Lambda and deleting Lambda function and Lambda layer. Additionally you can delete Cloudwatch log group and IAM role created for the Lambda

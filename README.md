@@ -13,7 +13,7 @@ In order to be able to go through the tasks set out in the workshop, participant
 * Linux-based system for running console commands. If using a Windows laptop, it should be possible to run a Linux image in a VMWare or Virtual Box
 * Your own AWS account. We will be using free tier as much as possible, but you should be mindful that creating resources outside of the scope of the workshop may result in additional cost, especially if you forget to delete them
 * Python - while the workshop is focused on running Python in AWS and not required for the workshop, you might want to experiment around on the localhost
-* Code editor - use your favouive code editor for working with Python
+* Code editor - use your favourite code editor for working with Python
 * AWS CLI - we will be needing this for any interactions with AWS from command line and also for Terraform
 * Terraform - will help us automate deployment of Lambda to AWS
 * Git - to download useful libraries and code repos (including this one)
