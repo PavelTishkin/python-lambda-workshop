@@ -1,12 +1,12 @@
 resource "aws_apigatewayv2_api" "WeatherAPI5_API_GW" {
-  name          = "weatherapi5_http_api_gw"
+  name          = "Lab5_WeatherAPI_HTTP_GW"
   protocol_type = "HTTP"
 }
 
 resource "aws_apigatewayv2_stage" "WeatherAPI5_API_GW_Stage" {
   api_id = aws_apigatewayv2_api.WeatherAPI5_API_GW.id
 
-  name        = "weatherapi5_gw"
+  name        = "lab5_weatherapi_gw"
   auto_deploy = true
 
   access_log_settings {
@@ -64,4 +64,8 @@ resource "aws_lambda_permission" "WeatherAPI5_API_GW_Permission" {
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${aws_apigatewayv2_api.WeatherAPI5_API_GW.execution_arn}/*/*"
+}
+
+output "api_gw_url" {
+    value = aws_apigatewayv2_api.WeatherAPI5_API_GW.api_endpoint
 }

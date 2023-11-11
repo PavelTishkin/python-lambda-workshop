@@ -1,4 +1,5 @@
-maintainer               = "pavlo"
-weather_api_key          = "*****************************"
-static_s3_website_bucket = "weatherapi5-static-website"
+maintainer               = ""
+weather_api_key          = ""
+profile                  = ""
+static_s3_website_bucket = ""
 expiration_sec           = 86400

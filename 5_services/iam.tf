@@ -1,5 +1,5 @@
 resource "aws_iam_policy" "WeatherAPI5_DDB_Write" {
-    name        = "WeatherAPI5_DDB_Write"
+    name        = "Lab5_WeatherAPI_DDB_Write"
     description = "Allow writing to DynamoDB"
 
     policy      = data.aws_iam_policy_document.WeatherAPI5_DDB_Write_Policy_Document.json    
@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "WeatherAPI5_DDB_Write_Policy_Document" {
 }
 
 resource "aws_iam_policy" "WeatherAPI5_DDB_Read" {
-    name        = "WeatherAPI5_DDB_Read"
+    name        = "Lab5_WeatherAPI_DDB_Read"
     description = "Allow reading from DynamoDB"
 
     policy      = data.aws_iam_policy_document.WeatherAPI5_DDB_Read_Policy_Document.json    

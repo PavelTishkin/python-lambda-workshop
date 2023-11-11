@@ -11,7 +11,7 @@ https://registry.terraform.io/namespaces/terraform-aws-modules
 
 ## Project code structure
 
-### [weather_api](weather_api)
+### [weather_api](weather_api/index.py)
 
 The folder that contains source code for the Lambda function. Usually this should contain all the code the Lambda needs to function, unless we reference a Lambda layer
 
@@ -66,6 +66,14 @@ terraform init
 
 The modules are downloaded and stored in .terraform directory locally
 
+### Fill out the config file
+
+Make sure that you fill out the parameters in [prod.tfvars](prod.tfvars) with your values
+
+* maintainer - your name
+* weather_api_key - API key from your OpenWeatherMap account
+* profile - name of AWS profile you have configured in ~/.aws/credentials
+
 ### Inspect changes
 
 Optionally, we can see what changes Terraform is going to make to the environment when resouces are deployed.
@@ -92,7 +100,7 @@ terraform apply -ver-file prod.tfvars
 
 You can run the above command any time you make any changes to your code, it will pick it up and update just the resources that are changed
 
-As a result of command executing, you will find a new file terraform.tfstate added to your folder. This file is used to track all the changes that Terraform applies to the remote environment.
+As a result of command executing, you will find a new file terraform.tfstate added to your folder. This file is used to track all the changes that Terraform applies to the remote environment
 
 ### Test changes
 

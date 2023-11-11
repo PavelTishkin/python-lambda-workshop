@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "WeatherAPI5_Data" {
-    name         = "WeatherAPI5_Data"
+    name         = "Lab5_WeatherAPI_Data"
     billing_mode = "PAY_PER_REQUEST"
     hash_key     = "dt"
     range_key    = "read_date"
@@ -26,7 +26,7 @@ resource "aws_dynamodb_table" "WeatherAPI5_Data" {
     }
 
     lifecycle {
-      prevent_destroy  = true
+      prevent_destroy  = false
     }
 
     tags = {

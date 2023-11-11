@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_event_rule" "WeatherAPI5_Event_Rule" {
-    name                = "WeatherAPI5_ScheduledQuery"
+    name                = "Lab5_WeatherAPI_ScheduledQuery"
     description         = "Execute Lambda on a schedule every 5 minutes to retrieve current temperature"
     schedule_expression = "cron(*/5 * * * ? *)"
 

@@ -6,7 +6,7 @@ In this lab we will learn how to expose our Lambda externally and call it throug
 
 ## Project code structure
 
-### [weather_api](weather_api)
+### [weather_api](weather_api/index.py)
 
 There need to be slight modifications to the script used to interact with OpenWeatherMap. Instead of reading *city_name* directly from an event it will be passed through *queryStringParameters*, which is what API Gateway will use for passing parameters.
 
@@ -39,12 +39,20 @@ Similarly to previous example, we need to run Terraform init in this folder sinc
 terraform init
 ```
 
+### Fill out the config file
+
+Make sure that you fill out the parameters in [prod.tfvars](prod.tfvars) with your values
+
+* maintainer - your name
+* weather_api_key - API key from your OpenWeatherMap account
+* profile - name of AWS profile you have configured in ~/.aws/credentials
+
 ### Apply changes
 
 Deploy the changes to our target environment
 
 ```console
-terraform apply -ver-file prod.tfvars
+terraform apply -var-file prod.tfvars
 ```
 
 Observe that the randomized URL of the API Gateway route is provided as an output from the apply command

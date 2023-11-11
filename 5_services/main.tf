@@ -2,21 +2,21 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.6"
+      version = "~> 5.24"
     }
   }
 
-  backend "s3" {
-    bucket         = "system9020-tf-backend"
-    key            = "state/WeatherAPI5/terraform.tfstate"
-    region         = "eu-west-1"
+  # backend "s3" {
+  #   bucket         = "system9020-tf-backend"
+  #   key            = "state/WeatherAPI5/terraform.tfstate"
+  #   region         = "eu-west-1"
 
-    dynamodb_table = "tf-state-lock"
-    encrypt        = true
-  }
+  #   dynamodb_table = "tf-state-lock"
+  #   encrypt        = true
+  # }
 }
 
 provider "aws" {
-  profile = "system9020"
+  profile = var.profile
   region  = "eu-west-1"
 }

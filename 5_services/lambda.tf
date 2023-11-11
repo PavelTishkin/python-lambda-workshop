@@ -1,10 +1,10 @@
 module "WeatherAPI5_API_Query_Lambda" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name       = "WeatherAPI5_API_Query"
+  function_name       = "Lab5_WeatherAPI_API_Query"
   description         = "Retrieves current weather and stores data in Dynamo DB"
   handler             = "index.lambda_handler"
-  runtime             = "python3.10"
+  runtime             = "python3.11"
 
   source_path         = "weatherapi_api_query"
 
@@ -19,7 +19,7 @@ module "WeatherAPI5_API_Query_Lambda" {
 
   }
 
-  role_name           = "WeatherAPI5_API_Query"
+  role_name           = "Lab5_WeatherAPI_API_Query"
   role_description    = "Lambda permissions to access DynamoDB"
   role_tags           = {
     owner             = var.maintainer
@@ -39,10 +39,10 @@ module "WeatherAPI5_API_Query_Lambda" {
 module "WeatherAPI5_DB_Query_Lambda" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name       = "WeatherAPI5_DB_Query"
+  function_name       = "Lab5_WeatherAPI_DB_Query"
   description         = "Retrieves temperatures from DynamoDB and returns as response"
   handler             = "index.lambda_handler"
-  runtime             = "python3.10"
+  runtime             = "python3.11"
 
   source_path         = "weatherapi_db_query"
 
@@ -50,7 +50,7 @@ module "WeatherAPI5_DB_Query_Lambda" {
     "DATA_TABLE_NAME" = aws_dynamodb_table.WeatherAPI5_Data.name
   }
 
-  role_name           = "WeatherAPI5_DB_Query"
+  role_name           = "Lab5_WeatherAPI_DB_Query"
   role_description    = "Lambda permissions to access DynamoDB"
   role_tags           = {
     owner             = var.maintainer
@@ -72,10 +72,10 @@ module "WeatherAPI5_Requests_Layer" {
 
   create_layer        = true
 
-  layer_name          = "WeatherAPI5_Requests"
+  layer_name          = "Lab5_WeatherAPI_Requests"
   description         = "Layer containing requests library for WeatherAPI Lambda"
 
-  compatible_runtimes = ["python3.10"]
+  compatible_runtimes = ["python3.11"]
 
   source_path         = "requests_layer"
 

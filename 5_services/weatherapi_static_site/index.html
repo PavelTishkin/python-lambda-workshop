@@ -10,12 +10,10 @@
 
   <script>
     // Make API request
-    axios.get('https://2iagf63e5l.execute-api.eu-west-1.amazonaws.com/weatherapi5_gw/weather')
+    axios.get('<API_Gateway_URL>/lab5_weatherapi_gw/weather')
       .then(response => {
-        const data = response.data;
-
-        const x = data.x;
-        const y = data.y;
+        const x = response.data.x;
+        const y = response.data.y;
 
         // Plot graph using Plotly.js
         const chartDiv = document.getElementById('chart');
